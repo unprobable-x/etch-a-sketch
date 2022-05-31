@@ -5,17 +5,20 @@ function makeRows(rows, cols) {
   container.style.setProperty('--grid-cols', cols);
   for (c = 0; c < (rows * cols); c++) {
     let cell = document.createElement("div");
-    //cell.innerText = (c + 1);
     container.appendChild(cell).className = "grid-item";
   };
 };
 
 container.addEventListener('mouseover', function (e) {
-    // Add the "active" class to only divs with a "box" class
     if (e.target.matches('.grid-item')) {
       e.target.classList.add('active');
     }
   })
 
-makeRows(4, 4);
+document.getElementById("select").onclick = function () 
+    { let gsize = prompt('Enter grid size', 4);
+        makeRows(gsize, gsize);
+    };
+
+// makeRows(gsize, gsize);
 
